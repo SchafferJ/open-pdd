@@ -1,0 +1,55 @@
+[package]
+name = "open-pdd"
+version = "0.1.0"
+edition = "2021"
+authors = ["Schaffer <schaffer.pro@gmail.com>"]
+description = "拼多多开放平台sdk的rust实现"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["all"]
+multipart = ["reqwest/multipart"]
+ad = ["reqwest"]
+ddk = ["reqwest", "multipart"]
+ddk_oauth = ["reqwest"]
+fds = ["reqwest"]
+finance = ["reqwest"]
+goods = ["reqwest", "multipart"]
+invoice = ["reqwest"]
+logistics = ["reqwest"]
+logistics_cs = ["reqwest"]
+mall = ["reqwest"]
+mall_info = ["reqwest"]
+order = ["reqwest"]
+oversea = ["reqwest"]
+picture = ["reqwest"]
+pmc = ["reqwest"]
+promotion = ["reqwest"]
+refund = ["reqwest"]
+service_market = ["reqwest"]
+sms = ["reqwest"]
+open_msg = ["reqwest"]
+stock = ["reqwest"]
+ticket = ["reqwest"]
+tools = ["reqwest"]
+virtual = ["reqwest"]
+voucher = ["reqwest"]
+waybill = ["reqwest"]
+http = ["ad", "ddk", "ddk_oauth", "fds", "finance", "goods", "invoice", "logistics", "logistics_cs", "mall", "mall_info", "order", "oversea", "picture", "pmc", "promotion", "refund", "service_market", "sms", "open_msg", "stock", "ticket", "tools", "virtual", "voucher", "waybill"]
+all = ["http"]
+
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.12.4", features = ["json", "multipart"], optional = true }
+md-5 = "0.10.5"
+url = "2.4.1"
+tracing = "0.1"
+thiserror = "1"
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
